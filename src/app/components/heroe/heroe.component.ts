@@ -5,16 +5,17 @@ import { HeroesService, Heroe } from "../../services/heroes.service";
 @Component({
   selector: "app-heroe",
   templateUrl: "./heroe.component.html",
-  styles: []
+  styleUrls: ["./heroe.component.css"]
 })
 export class HeroeComponent implements OnInit {
-  heroe: any[] = {};
+  heroe: any = {};
   constructor(
     private activatedRoute: ActivatedRoute,
     private _heroesService: HeroesService
   ) {
-    this.activatedRoute.params.subscribe(obj => {
-      this.heroe = this._heroesService.getHeroe(obj["id"]);
+    this.activatedRoute.params.subscribe(params => {
+      console.log("obj in suscribe", params);
+      this.heroe = this._heroesService.getHeroe(params["id"]);
     });
     console.log(this.heroe);
   }

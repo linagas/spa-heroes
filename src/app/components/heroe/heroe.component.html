@@ -1,1 +1,29 @@
-<p>heroe works!</p>
+<div class="container">
+  <h1>
+    {{ heroe.nombre | uppercase }} (<small>{{
+      heroe.aparicion | date: "y"
+    }}</small
+    >)
+  </h1>
+  <hr />
+  <div class="media animated fadeIn fast">
+    <a href="heroes" class="btn btn-outline-danger">Back</a>
+    <img
+      src="{{ heroe.img }}"
+      class="align-self-start mr-3"
+      alt="{{ heroe.nombre }}"
+    />
+    <div class="media-body">
+      <h5 class="mt-0">{{ heroe.nombre }}</h5>
+      <hr />
+      <p>{{ heroe.bio }}</p>
+      <div>
+        <img
+          class="img-folder-file"
+          src="{{ 'assets/img/' + heroe.casa + '.png' | lowercase }}"
+          alt="heroe.casa"
+        />
+      </div>
+    </div>
+  </div>
+</div>
